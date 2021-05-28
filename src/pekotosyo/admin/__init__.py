@@ -11,10 +11,6 @@ app = Flask(__name__)
 app.config.from_object('admin.config')
 app.config.from_object('lib.config')
 
-# dbの作成
 init_db(app)
 
-# 各ビューのインポート
-from admin.views import views_kids_reserve
-
-app.register_blueprint(views_kids_reserve.reserve, url_prefix='/views_kids_reserve')
+from admin.views import views_top, views_mypage
