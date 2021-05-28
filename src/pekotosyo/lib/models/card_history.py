@@ -1,11 +1,11 @@
 from lib.db import db
 
-class Cardhistory(db.model):
+class Cardhistory(db.Model):
 
-    __tablename__ ='card_history'
+    __tablename__ ='cardhistory'
 
     cardhistory_id = db.Column(db.Integer,primary_key=True)
-    userid =db.Column(db.String(8), nullable=False, db.ForeignKey('users.userid'))
+    userid =db.Column(db.String(8), db.ForeignKey('users.user_id'))
     history_date = db.Column(db.Integer, nullable=False)
     chargemoney = db.Column(db.Integer, nullable=False)
 

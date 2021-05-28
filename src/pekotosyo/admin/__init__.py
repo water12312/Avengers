@@ -1,7 +1,10 @@
 from flask import Flask
 
+from lib.db import init_db
+
 app = Flask(__name__)
 
-app.config.from_object('practice.config')
+app.config.from_object('admin.config')
+app.config.from_object('lib.config')
 
-import admin.views
+init_db(app)

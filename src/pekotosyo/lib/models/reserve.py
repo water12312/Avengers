@@ -3,6 +3,7 @@ from datetime import datetime
 
 class Reserve(db.Model):
 
+    __tablename__ = 'reserve'
 
     reserve_id = db.Column(db.Integer,primary_key=True)
     user_id = db.Column(db.String(8),db.ForeignKey('users.user_id'))

@@ -8,10 +8,10 @@ class Cardinfo(db.Model):
     cardinfo_id = db.Column(db.Integer,primary_key=True)
     user_id = db.Column(db.String(8),db.ForeignKey('users.user_id'))
     card_number = db.Column(db.String(16))
-    card_key = db.Colum(db.String(3))
+    card_key = db.Column(db.String(3))
     card_date = db.Column(db.Date)
     card_name = db.Column(db.String(10))
-    user_money = db.Column(db.Integer,dbString(255),nullable=False)
+    user_money = db.Column(db.Integer,nullable=False)
 
 
     def __init__(self,user_id,card_number,card_key,card_date,card_name,user_money):
