@@ -14,5 +14,5 @@ class Users(db.Model):
 
 
     def __init__(self, password,user_name):
-        self.passwoed = passwoed
+        self.password = password
         self.user_name = user_name

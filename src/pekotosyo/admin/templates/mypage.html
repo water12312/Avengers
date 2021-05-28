@@ -1,1 +1,42 @@
-mypage.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for category, message in get_flashed_messages(with_categories = true) %}
+        {% if category == 'success' %}
+            <div style="background-color:rgb(73, 73, 73)">
+                {{message}}
+            </div>
+        {% elif category == 'error' %}
+            <div style="background-color:rgb(73, 73, 73)">
+                {{message}}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <h3>ようこそ User さん</h3>
+    
+    <h3><div style="color: red;">〇〇の提出期限が迫っています（〇月〇日まで）</div></h3>
+
+
+
+    
+    <form action="{{ url_for('result') }}" method="POST">
+        <p>本の検索：<input type="text" name="item" size="30"><input type="submit" value="検索"></p>
+        
+    </form>
+    <ul>
+        <li><a href="{{url_for('kid_reserve')}}">保育予約</a></li>
+        <li><a href="{{url_for('money')}}">電子マネー</a></li>
+        <li><a href="{{url_for('book_reserve')}}">貸出確認</a></li>
+        <li><a href="{{url_for('book_recommend')}}">あなたにオススメの本</a></li>
+    </ul>
+
+    
+</body>
+</html>

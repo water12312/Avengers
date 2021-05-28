@@ -1,5 +1,6 @@
 from lib.db import db
 from datetime import datetime
+
 class Cardinfo(db.Model):
 
 
