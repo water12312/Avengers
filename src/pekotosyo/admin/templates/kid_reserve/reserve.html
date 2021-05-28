@@ -1,1 +1,39 @@
-reserve.html
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>予約フォーム</title>
+</head>
+<body>
+    <div align="center">
+        <h1>こどもお預かりサービスのご予約フォーム</h1>
+        <img src="https://pictogram2.com/p/p0354/2.png" alt="家族画像" width="300" height="300">
+        <p>当館では専任保育士による、こどもお預かりサービスをおこなっております。<br>
+        下記のフォームを入力し申請ボタンを押していただければ、いつでもご利用いただけます。</p>
+        <div>
+            <!-- 入力画面 -->
+            <form action="{{url_for('reserve_check')}}", method="POST">
+                <!-- 日時 -->
+                <label> ・ご利用になられたい日時をお選びください</label>
+                <input type="text" name="reserve_date" size="30" >
+                <br>
+                <label>・保護者のお名前を入力してください</label>
+                <input type="text" name="reserve_name" size="30">
+                <br>
+
+                <!-- おもちゃの貸し出しセレクト -->
+                <p>さらに当館では、図書以外にも知育おもちゃ、アニメなども貸し出しております。<br>
+                貸し出し希望の場合はチェックをいれていください。</p>
+                <br>
+                <label>貸し出しおもちゃの選択</label>
+                <br>
+                <p><input type="checkbox" name="items" value="item">知育おもちゃ
+                    <input type="checkbox" name="items" value="anime">アニメ</p>
+                    <input type="checkbox" name="items" value="noitem">借りない</p>
+                <button type="submit">送信</button>
+            </form>            
+        </div>
+    </div> 
+</body>
+</html>
