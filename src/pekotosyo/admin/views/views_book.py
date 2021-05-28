@@ -17,7 +17,7 @@ def login_check(view):
         return view(*args, **kwargs)
     return innner
 
-@item.route('/')
+@book.route('/')
 def index():
     return render_template('top.html')
 

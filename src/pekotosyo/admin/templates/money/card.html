@@ -1,1 +1,22 @@
-card.html
+<!-- 口座登録 -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>電子マネー</title>
+    </head>
+    <body>
+        <button onclick="history.back()">戻る</button>
+        <form action="{{url_for('money.card_info')}}" method="POST">
+            <p>お名前</p>
+            <input type="text" name="card_name" placeholder="田中太郎">
+            <p>カード番号</p>
+            <input type="text" name="card_number" placeholder="xxxx-xxxx-xxxx">
+            <p>セキュリティキー</p>
+            <input type="text" name="card_key" placeholder="xxx">
+            <p>有効期限</p>
+            <input type="text" name="card_date" placeholder="dd/yy">
+            <input type="submit">
+        </form>
+    </body>

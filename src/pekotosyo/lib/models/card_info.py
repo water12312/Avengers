@@ -19,6 +19,6 @@ class Cardinfo(db.Model):
         self.card_number = card_number
         self.card_key = card_key
         self.card_date = card_date
-        self.card_name = datetime.today()
+        self.card_name = card_name
         self.user_money = user_money
 
