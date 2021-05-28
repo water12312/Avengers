@@ -8,3 +8,5 @@ app.config.from_object('admin.config')
 app.config.from_object('lib.config')
 
 init_db(app)
+
+from admin.views import views_top, views_mypage
