@@ -30,7 +30,7 @@ def mypage():
 
 
 @top.route('/top', methods=['GET', 'POST'])
-def top():
+def top2():
     if request.method== 'POST':
 
         user_id = request.form.get('user_id')
@@ -54,7 +54,7 @@ def top():
             return redirect(url_for('mypage'))
     return render_template('top.html')
 
-@top.route('/logout')
+@app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     session.pop('user_in', None)

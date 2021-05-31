@@ -21,6 +21,7 @@ def book_reserve(user_id):
 # kid_reserveに飛ばす
 @mypage.route('/kid_reserve')
 def kid_reserve():
+
     return render_template('kid_reserve.html')
 
 # moneyに飛ばす
