@@ -15,8 +15,7 @@ import statistics
 # @login_check
 def borrowbook():
     
-    # user_id = request.form.get('user_id')
-    user_id = '0000001'
+    user_id = session.get("user_id")
     borrowbook = Borrowbook.query.order_by(Borrowbook.book_id.asc()).all()
     books = Book.query.order_by(Book.book_id.asc()).all()
 
@@ -26,8 +25,8 @@ def borrowbook():
 # @login_checkS
 def bookhistory():
     #接続テスト確認必要
-    # user_id = request.form.get('user_id')
-    user_id = '0000001'
+    user_id = session.get("user_id")
+    # user_id = '0000001'
     borrowbook = Borrowbook.query.order_by(Borrowbook.book_id.asc()).all()
     books = Book.query.order_by(Book.book_id.asc()).all()
 
@@ -40,8 +39,7 @@ def bookhistory():
 # @login_check
 def recommend():
     
-    # user_id = request.form.get('user_id')
-    user_id = '0000001'
+    user_id = session.get("user_id")
     borrowbook = Borrowbook.query.order_by(Borrowbook.book_id.asc()).all()
     books = Book.query.order_by(Book.book_id.asc()).all()
     genrelist = []

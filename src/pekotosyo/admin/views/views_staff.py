@@ -15,10 +15,10 @@ from functools import wraps
 # def index():
 #     return render_template('staff/user_add.html')
 
-@app.route('/')
-# @login_check
-def index():
-    return render_template('staff/staff.html')
+# @app.route('/')
+# # @login_check
+# def index():
+#     return render_template('staff/staff.html')
 @staff.route('/staffuseradd')
 # @login_check
 def staffadd():
