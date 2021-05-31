@@ -21,7 +21,7 @@ def login_check(view):
         return view(*args,**kwargs)
     return inner
 
-@app.route('/')
+@top.route('/')
 @login_check
 def mypage():
     user_name = session.get("user_in")
@@ -29,7 +29,7 @@ def mypage():
     return render_template('mypage.html',user_name=user_name, user_id=user_id)
 
 
-@app.route('/top', methods=['GET', 'POST'])
+@top.route('/top', methods=['GET', 'POST'])
 def top():
     if request.method== 'POST':
 
@@ -54,7 +54,7 @@ def top():
             return redirect(url_for('mypage'))
     return render_template('top.html')
 
-@app.route('/logout')
+@top.route('/logout')
 def logout():
     session.pop('logged_in', None)
     session.pop('user_in', None)
