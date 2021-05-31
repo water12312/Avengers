@@ -1,7 +1,7 @@
 from flask import render_template, request, url_for, session, redirect, flash, Blueprint
 
 # reserveモデルを取得
-from lib.models import Users, Reserve
+from lib.models import Reserve, Users
 
 # SQLAlchemyを取得
 from lib.db import db
@@ -15,28 +15,42 @@ kid_reserve = Blueprint('kid_reserve', __name__)
 @kid_reserve.route('/')
 def reserve():
     # ログインのメソッドをいれる
-    return render_template('kid_reserve/reserve.html')
+    user_id = session.get('user_id')
+    return render_template('kid_reserve/reserve.html', user_id = user_id )
 
 @kid_reserve.route('kid_reserve/reserve_check', methods=["POST"])
 def reserve_check():
     # ログインのメソッドがいる
+    user_id = session.get('user_id')
     # return render_template('kid_reserve/reserve_check.html')
+
+    user_id = request.form.get('user_id')
     reserve_date = request.form.get('reserve_date')
-    reserve_name = request.form.get('reserve_name')
-    items = request.form.getlist('items')   
+    item = request.form.get('item')
+    user_name = request.form.get('user_name')
 
-# 借りるおもちゃを選択
-    selected_items = ""
-    if len(items) !=0:
-        for items in items:
-            if items == "item":
-                selected_items += "知育おもちゃ"
-            elif items == "anime":
-                selected_items += "アニメ"
-            elif items == "noitem":
-                selected_items += "借りるおもちゃはありません"
-            else:
-                selected_items +="???"
-                # 選択した内容を返す
-    return render_template('kid_reserve/reserve_check.html', reserve_date=reserve_date, reserve_name=reserve_name, selected_items=selected_items )
 
+    reserve_info = Reserve(
+        user_id=request.form.get('user_id'),
+        reserve_date = request.form.get('reserve_date'),
+        item = request.form.get('item')  
+
+    )  
+    try:
+        db.session.add(reserve_info)
+        db.session.commit()
+    except:
+        return render_template('kid_reserve/reserve.html')
+    return render_template('kid_reserve/reserve_check.html', reserve_date=reserve_date, user_id=user_id, user_name=user_name, item=item)
+
+    
+
+
+    # reserve_name = request.form.get('reserve_name')
+    # items = request.form.getlist('items')  
+
+    # return render_template('kid_reserve/reserve_check.html', reserve_date=reserve_date, user_id=user_id, item=item )
+
+@app.route('/')
+def mypage():
+    return render_template('mypage.html')
