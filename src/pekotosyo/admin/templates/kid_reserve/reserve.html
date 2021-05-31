@@ -13,7 +13,7 @@
         下記のフォームを入力し申請ボタンを押していただければ、いつでもご利用いただけます。</p>
         <div>
             <!-- 入力画面 -->
-            <form action="{{url_for('reserve_check')}}", method="POST">
+            <form action="{{url_for('kid_reserve.reserve_check')}}", method="POST">
                 <!-- 日時 -->
                 <label> ・ご利用になられたい日時をお選びください</label>
                 <input type="text" name="reserve_date" size="30" >
@@ -34,6 +34,6 @@
                 <button type="submit">送信</button>
             </form>            
         </div>
-    </div> 
+    </div>         
 </body>
 </html>

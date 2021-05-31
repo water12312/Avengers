@@ -9,7 +9,19 @@
 <body>
     <p>検索結果</p>
 
-    <h3>本一覧</h3>
+
+    <p>{{book.book_name}}は{{ book.book_genre }}です</p>
+
+    <p><a href="{{url_for('mypage')}}">マイページへ戻る</a></p>
+
+    <p><a href="{{url_for('logout')}}">ログアウト</a></p>
+
+
+
+
+
+
+    <!-- <h3>本一覧</h3>
 
     <table border="1">
         <tr>
@@ -26,7 +38,7 @@
         </tr>
     </table>
 
-    <p>Topへ戻る</p>
+    <p>Topへ戻る</p> -->
 
     
 </body>
