@@ -1,1 +1,33 @@
-book_history.html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../statics/book_history.css"> -->
+    <title>貸し出し履歴</title>
+</head>
+<body>
+        <h1>貸し出し履歴</h1>
+        <table class="book" border='1' >
+            <tr class="book_header">
+                <th class="book_cell">タイトル</th>
+                <th class="book_cell">ジャンル</th>
+            </tr> 
+                {% for book2 in books %}
+                {% for book in borrowbook %}
+  
+                {% if user_id == book.user_id %}
+                {% if book.book_id == book2.book_id %}
+                <tr>
+                <td class="book_cell">{{book2.book_name}}</td>
+                <td class="book_cell">{{book2.book_genre}}</td>
+                </tr>
+                {% endif %}
+                {% endif %}
+               
+                {% endfor %}
+                {% endfor %}
+        </table>
+</body>
+</html>

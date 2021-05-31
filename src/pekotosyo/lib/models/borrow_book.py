@@ -11,7 +11,7 @@ class Borrowbook(db.Model):
     deadline = db.Column(db.Date, nullable=False)
 
     def __init__(self, user_id, book_id, frag,deadline):
-        self.userid = userid
+        self.user_id = user_id
         self.bookid = bookid
         self.frag = frag
         self.deadline = deadline
