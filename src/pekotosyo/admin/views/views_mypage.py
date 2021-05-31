@@ -13,25 +13,25 @@ mypage = Blueprint('mypage', __name__)
 # book_reserveに飛ばす
 
 
-@mypage.route('/book_reserve')
-def book_reserve(user_id):
-    id_send = Users.query.get(user_id)
-    return render_template('book_reserve.html', user_id=id_send)
+@mypage.route('/book_borrow')
+def book_borrow(user_id):
+    # id_send = Users.query.get(user_id)
+    return render_template('book/book_borrow.html', user_id=user_id)
 
 # kid_reserveに飛ばす
 @mypage.route('/kid_reserve')
-def kid_reserve():
-    return render_template('kid_reserve.html')
+def kid_reserve(user_id):
+    return render_template('kid_reserve/reserve.html', user_id=user_id)
 
 # moneyに飛ばす
 @mypage.route('/money')
-def money():
-    return render_template('money.html')
+def money(user_id):
+    return render_template('money/money.html', user_id=user_id)
 
 # book_recommendに飛ばす
 @mypage.route('/book_recommend')
-def book_recommend():
-    return render_template('book_recommend')
+def book_recommend(user_id):
+    return render_template('book/recommend.html', user_id=user_id)
 
 
 
