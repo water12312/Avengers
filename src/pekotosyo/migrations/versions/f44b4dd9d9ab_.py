@@ -1,10 +1,5 @@
 """empty message
 
-<<<<<<< HEAD:src/pekotosyo/migrations/versions/5228d9ba5035_.py
-Revision ID: 5228d9ba5035
-Revises: 
-Create Date: 2021-05-31 12:26:45.225251
-=======
 <<<<<<< HEAD:src/pekotosyo/migrations/versions/163850d1b340_.py
 Revision ID: 163850d1b340
 Revises: 
@@ -14,7 +9,6 @@ Revision ID: f44b4dd9d9ab
 Revises: 
 Create Date: 2021-05-31 13:42:12.740857
 >>>>>>> refs/remotes/origin/develop:src/pekotosyo/migrations/versions/f44b4dd9d9ab_.py
->>>>>>> origin/develop:src/pekotosyo/migrations/versions/163850d1b340_.py
 
 """
 from alembic import op
@@ -22,15 +16,11 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-<<<<<<< HEAD:src/pekotosyo/migrations/versions/5228d9ba5035_.py
-revision = '5228d9ba5035'
-=======
 <<<<<<< HEAD:src/pekotosyo/migrations/versions/163850d1b340_.py
 revision = '163850d1b340'
 =======
 revision = 'f44b4dd9d9ab'
 >>>>>>> refs/remotes/origin/develop:src/pekotosyo/migrations/versions/f44b4dd9d9ab_.py
->>>>>>> origin/develop:src/pekotosyo/migrations/versions/163850d1b340_.py
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -62,15 +52,11 @@ def upgrade():
     )
     op.create_table('cardhistory',
     sa.Column('cardhistory_id', sa.Integer(), nullable=False),
-<<<<<<< HEAD:src/pekotosyo/migrations/versions/5228d9ba5035_.py
-    sa.Column('user_id', sa.String(length=8), nullable=True),
-=======
 <<<<<<< HEAD:src/pekotosyo/migrations/versions/163850d1b340_.py
     sa.Column('user_id', sa.String(length=8), nullable=True),
 =======
     sa.Column('userid', sa.String(length=8), nullable=True),
 >>>>>>> refs/remotes/origin/develop:src/pekotosyo/migrations/versions/f44b4dd9d9ab_.py
->>>>>>> origin/develop:src/pekotosyo/migrations/versions/163850d1b340_.py
     sa.Column('history_date', sa.Date(), nullable=False),
     sa.Column('chargemoney', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.user_id'], ),

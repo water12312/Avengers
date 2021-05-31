@@ -1,1 +1,28 @@
-book_list.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="../statics/book_list.css"> -->
+</head>
+<body>
+    <!--books = Books.query.order_by(Books.book_name.desc().all()) -->
+    <h1>本の一覧</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>タイトル</th>
+            <th>ジャンル</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{book.book_id}}</td>
+            <td>{{book.book_name}}</td>
+            <td>{{book.book_genre}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

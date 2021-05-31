@@ -13,6 +13,8 @@ class Users(db.Model):
     card_history = db.relationship('Cardhistory', backref='user', uselist=False)
 
 
-    def __init__(self, password,user_name):
+
+    def __init__(self,user_id,password,user_name):
+        self.user_id = user_id
         self.password = password
         self.user_name = user_name

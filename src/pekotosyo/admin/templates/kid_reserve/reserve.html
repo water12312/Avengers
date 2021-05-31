@@ -13,27 +13,27 @@
         下記のフォームを入力し申請ボタンを押していただければ、いつでもご利用いただけます。</p>
         <div>
             <!-- 入力画面 -->
-            <form action="{{url_for('reserve_check')}}", method="POST">
+            <form action="{{url_for('kid_reserve.reserve_check')}}", method="POST">
                 <!-- 日時 -->
-                <label> ・ご利用になられたい日時をお選びください</label>
-                <input type="text" name="reserve_date" size="30" >
+                <label> ・ご利用になられる日時をお選びください</label>
+                <input type="text" name="reserve_date" size="30" placeholder="2020/04/01">
                 <br>
-                <label>・保護者のお名前を入力してください</label>
-                <input type="text" name="reserve_name" size="30">
+                <label>・保護者のIDを入力してください</label>
+                <input type="text" name="user_id" size="30" placeholder="00000001">
                 <br>
-
+                <label>・保護者の名前を入力してください</label>
+                <input type="text" name="user_name" size="30" placeholder="田中太郎">
+                <br>
                 <!-- おもちゃの貸し出しセレクト -->
-                <p>さらに当館では、図書以外にも知育おもちゃ、アニメなども貸し出しております。<br>
-                貸し出し希望の場合はチェックをいれていください。</p>
+                <p>さらに当館では、図書以外にもおもちゃ、アニメを貸し出しております。<br>
+                貸し出し希望の場合は借りるアイテム名をいれていください。</p>
                 <br>
-                <label>貸し出しおもちゃの選択</label>
+                <label>貸し出しおもちゃの選択【おもちゃ・アニメ・借りない】</label>
+                <input type="text" name="item" size="30" placeholder="アニメ">
                 <br>
-                <p><input type="checkbox" name="items" value="item">知育おもちゃ
-                    <input type="checkbox" name="items" value="anime">アニメ</p>
-                    <input type="checkbox" name="items" value="noitem">借りない</p>
                 <button type="submit">送信</button>
             </form>            
         </div>
-    </div> 
+    </div>         
 </body>
 </html>

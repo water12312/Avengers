@@ -11,11 +11,11 @@ top.html
     <!-- <p>top.html</p> -->
     {% for category, message in get_flashed_messages(with_categories = true) %}
         {% if category == 'success' %}
-            <div style="background-color:rgb(73, 73, 73)">
+            <div style="background-color:rgb(66, 100, 211)">
                 {{message}}
             </div>
         {% elif category == 'error' %}
-            <div style="background-color:rgb(73, 73, 73)">
+            <div style="background-color:rgb(66, 100, 211)">
                 {{message}}
             </div>
         {% endif %}
@@ -30,7 +30,7 @@ top.html
         {% endif %}
 
     </h3>
-    <form action="{{ url_for('result') }}" method="POST">
+    <form action="{{ url_for('mypage.result') }}" method="POST">
 
     <p>本の検索：<input type="text" name="item" size="30"><input type="submit" value="検索"></p>
 
@@ -46,7 +46,7 @@ top.html
     </div>
     <div>
         Password
-        <input type="text" name="password">
+        <input type="password" name="password">
 
     </div>
     <button type="submit">ログインする</button>

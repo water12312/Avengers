@@ -1,1 +1,31 @@
-user_add.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../statics/user_add.css">
+</head>
+<body>
+
+    <h1>新規利用者の追加</h1>
+    <form action="{{url_for('staff.useradd')}}" method="POST">
+        <div>
+            名前
+            <input type="text" name="user_name">
+        </div>
+        <div>
+            ユーザーID
+            <input type="number" name="user_id">
+        </div>
+        <div>
+            パスワード
+            <input type="text" name="password">
+        </div>
+        <div>
+            <button type="submit">送信</button>
+        </div>
+    </form>
+</body>
+</html>
