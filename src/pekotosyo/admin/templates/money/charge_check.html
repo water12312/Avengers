@@ -6,5 +6,8 @@
         <title>電子マネー</title>
     </head>
     <body>
-        xx円チャージしました
+        {{ history.chargemoney }}円チャージしました
+        <a href="{{url_for('mypage')}}">
+            <button>topへ</button>
+        </a>
     </body>

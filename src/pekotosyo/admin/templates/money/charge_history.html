@@ -9,6 +9,7 @@
         <button onclick="history.back()">戻る</button>
         <br>
         userさんの電子マネーチャージ履歴
+        {{ histories }}
         <table>
             <thead>
                 <tr>
@@ -17,10 +18,14 @@
                 </tr>
             </thead>
             <tbody>
+                {% for cardhistory in histories %}
+                    {% if cardhistory.userid == userid %}
                 <tr>
-                    <td>(cardhistory.chargemoney)</td>
-                    <td>(cardhistory.history_date)</td>
+                    <td>{{ cardhistory.chargemoney }}</td>
+                    <td>{{ cardhistory.history_date }}</td>
                 </tr>
+                    {% endif %}
+                {% endfor %}
             </tbody>
         </table>
     </body>

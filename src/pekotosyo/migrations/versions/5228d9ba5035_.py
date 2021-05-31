@@ -1,14 +1,8 @@
 """empty message
 
-<<<<<<< HEAD:src/pekotosyo/migrations/versions/3f123ff04e7e_.py
-Revision ID: 3f123ff04e7e
+Revision ID: 5228d9ba5035
 Revises: 
-Create Date: 2021-05-28 14:51:20.104304
-=======
-Revision ID: 9c9b12530d03
-Revises: 
-Create Date: 2021-05-28 15:11:05.341957
->>>>>>> origin/develop:src/pekotosyo/migrations/versions/9c9b12530d03_.py
+Create Date: 2021-05-31 12:26:45.225251
 
 """
 from alembic import op
@@ -16,11 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-<<<<<<< HEAD:src/pekotosyo/migrations/versions/3f123ff04e7e_.py
-revision = '3f123ff04e7e'
-=======
-revision = '9c9b12530d03'
->>>>>>> origin/develop:src/pekotosyo/migrations/versions/9c9b12530d03_.py
+revision = '5228d9ba5035'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -52,10 +42,10 @@ def upgrade():
     )
     op.create_table('cardhistory',
     sa.Column('cardhistory_id', sa.Integer(), nullable=False),
-    sa.Column('userid', sa.String(length=8), nullable=True),
-    sa.Column('history_date', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.String(length=8), nullable=True),
+    sa.Column('history_date', sa.Date(), nullable=False),
     sa.Column('chargemoney', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['userid'], ['users.user_id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.user_id'], ),
     sa.PrimaryKeyConstraint('cardhistory_id')
     )
     op.create_table('cardinfo',
@@ -63,7 +53,7 @@ def upgrade():
     sa.Column('user_id', sa.String(length=8), nullable=True),
     sa.Column('card_number', sa.String(length=16), nullable=True),
     sa.Column('card_key', sa.String(length=3), nullable=True),
-    sa.Column('card_date', sa.Date(), nullable=True),
+    sa.Column('card_date', sa.Integer(), nullable=True),
     sa.Column('card_name', sa.String(length=10), nullable=True),
     sa.Column('user_money', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.user_id'], ),
