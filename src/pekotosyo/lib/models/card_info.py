@@ -10,7 +10,7 @@ class Cardinfo(db.Model):
     user_id = db.Column(db.String(8),db.ForeignKey('users.user_id'))
     card_number = db.Column(db.String(16))
     card_key = db.Column(db.String(3))
-    card_date = db.Column(db.Date)
+    card_date = db.Column(db.Integer)
     card_name = db.Column(db.String(10))
     user_money = db.Column(db.Integer,nullable=False)
 
