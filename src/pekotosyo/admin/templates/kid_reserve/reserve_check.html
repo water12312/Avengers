@@ -1,4 +1,4 @@
-  <html lang="jp">
+<html lang="jp">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +8,10 @@
         <div align="center">
             <h1>こどもお預かりサービスのご予約が完了いたしました</h1>
             <p>日時：{{ reserve_date }}</p>
-            <p>保護者様のお名前：{{ reserve_name }}</p>
-            <p>貸し出しおもちゃ：{{ selected_items }}</p>
-
-        </div> 
+            <p>保護者様のID：{{ user_id }}</p> 
+            <p>保護者様の名前：{{ user_name }}</p>
+            <p>貸し出しおもちゃ：{{ item }}</p>
+            <a href="{{url_for('mypage')}}">マイページに戻る</a>
     </body>
     </html>
+
