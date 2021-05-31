@@ -1,55 +1,57 @@
-# <<<<<<< HEAD
-# =======
-# # Flaskの必要項目をインポート
-# >>>>>>> origin/develop
-# from flask import render_template, request, url_for, session, redirect, flash, Blueprint
 
-# # reserveモデルを取得
-# from lib.models import Users, Reserve
+from flask import render_template, request, url_for, session, redirect, flash, Blueprint
 
-# # SQLAlchemyを取得
-# from lib.db import db
+# reserveモデルを取得
+from lib.models import Reserve, Users
 
-# from admin import app
+# SQLAlchemyを取得
+from lib.db import db
 
-# # Blueptintでreserveアプリケーションを登録
-# reserve = Blueprint('reserve', __name__)
+from admin import app
 
-# # 保育予約画面を表示
-# <<<<<<< HEAD
-# @reserve.route('/')
-# def index():
-#     return render_template('kid_reserve/reserve.html',users_id = users_id)
-# =======
-# @reserve.route('/kid_reserve/reserve')
-# def reserve():
-#     # ログインのメソッドをいれる
-#     return render_template('/reserve.html')
+# Blueptintでreserveアプリケーションを登録
+kid_reserve = Blueprint('kid_reserve', __name__)
 
-# # # フォームの内容を取ってくる
-# # @reserve.route('/reserve_check', methods=["POST"])
-# # def reserve_check():
-# #     # ログインのメソッドがいる
-# #     # reserve = Reserve(
-# #     reserve_date = request.form.get('reserve_date')
-# #     reserve_name = request.form.get('reserve_name')
-# #     items = request.form.getlist('items')   
-# #     # )
+# 保育予約画面を表示
+@kid_reserve.route('/')
+def reserve():
+    # ログインのメソッドをいれる
+    user_id = session.get('user_id')
+    return render_template('kid_reserve/reserve.html', user_id = user_id )
 
-# # # 借りるおもちゃを選択
-# #     selected_items = ""
-# #     if len(items) !=0:
-# #         for items in items:
-# #             if items == "item":
-# #                 selected_items += "知育おもちゃ"
-# #             elif items == "anime":
-# #                 selected_items += "アニメ"
-# #             elif items == "noitem":
-# #                 selected_items += "借りるおもちゃはありません"
-# #             else:
-# #                 selected_items +="???"
+@kid_reserve.route('kid_reserve/reserve_check', methods=["POST"])
+def reserve_check():
+    # ログインのメソッドがいる
+    user_id = session.get('user_id')
+    # return render_template('kid_reserve/reserve_check.html')
 
-# >>>>>>> origin/develop
+    user_id = request.form.get('user_id')
+    reserve_date = request.form.get('reserve_date')
+    item = request.form.get('item')
+    user_name = request.form.get('user_name')
 
-# #                 # 選択した内容を返す
-# #     return render_template('reserve_check.html', reserve_date=reserve_date, reserve_name=reserve_name, selected_items=selected_items )
+
+    reserve_info = Reserve(
+        user_id=request.form.get('user_id'),
+        reserve_date = request.form.get('reserve_date'),
+        item = request.form.get('item')  
+
+    )  
+    try:
+        db.session.add(reserve_info)
+        db.session.commit()
+    except:
+        return render_template('kid_reserve/reserve.html')
+    return render_template('kid_reserve/reserve_check.html', reserve_date=reserve_date, user_id=user_id, user_name=user_name, item=item)
+
+    
+
+
+    # reserve_name = request.form.get('reserve_name')
+    # items = request.form.getlist('items')  
+
+    # return render_template('kid_reserve/reserve_check.html', reserve_date=reserve_date, user_id=user_id, item=item )
+
+@app.route('/')
+def mypage():
+    return render_template('mypage.html')
