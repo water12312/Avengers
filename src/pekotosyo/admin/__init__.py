@@ -20,7 +20,6 @@ from admin.views import views_book, views_kids_reserve, views_money, views_staff
 
 
 
->>>>>>> origin/develop
 app.register_blueprint(views_book.book, url_prefix='/book')
 app.register_blueprint(views_kids_reserve.kid_reserve, url_prefix='/kid_reserve')
 app.register_blueprint(views_money.money, url_prefix='/money')
@@ -29,4 +28,3 @@ app.register_blueprint(views_staff.staff, url_prefix='/staff')
 
 app.register_blueprint(views_top.top_page, url_prefix='/')
 app.register_blueprint(views_mypage.my_page, url_prefix='/mypage')
->>>>>>> origin/develop
