@@ -43,6 +43,7 @@ def recommend():
     borrowbook = Borrowbook.query.order_by(Borrowbook.book_id.asc()).all()
     books = Book.query.order_by(Book.book_id.asc()).all()
     genrelist = []
+    mostgenre=''
     for book2 in books :
         for book in borrowbook:
             if user_id == book.user_id :
