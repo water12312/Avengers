@@ -15,30 +15,17 @@ init_db(app)
 
 # from admin.views import views_money
 
-<<<<<<< HEAD
 
 from admin.views import views_book, views_kids_reserve, views_money, views_staff,views_top,views_mypage
 # from admin.views import views_top, views_mypage, views_kids_reserve, views_money,views_book
 
 
 
-=======
 
-# from admin.views import views_book, views_kids_reserve, views_money, views_staff,views_top,views_mypage
-from admin.views import  views_kids_reserve, views_top, views_mypage
-
-
-
->>>>>>> origin/develop
 app.register_blueprint(views_book.book, url_prefix='/book')
 app.register_blueprint(views_kids_reserve.kid_reserve, url_prefix='/kid_reserve')
 app.register_blueprint(views_money.money, url_prefix='/money')
 app.register_blueprint(views_staff.staff, url_prefix='/staff')
-<<<<<<< HEAD
 app.register_blueprint(views_top.top_page, url_prefix='/')
 app.register_blueprint(views_mypage.my_page, url_prefix='/mypage')
-=======
 
-app.register_blueprint(views_top.top, url_prefix='/top')
-app.register_blueprint(views_mypage.mypage, url_prefix='/')
->>>>>>> origin/develop

@@ -23,7 +23,7 @@ def kid_reserve():
 # moneyに飛ばす
 @my_page.route('/money')
 def money():
-    return render_template('money/money_menu.html')
+    return redirect(url_for('money.index'))
 
 # book_recommendに飛ばす
 @my_page.route('/book_recommend')
