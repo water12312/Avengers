@@ -7,6 +7,10 @@ body{
 
 }
 
+h1{
+    font-family: 'Times New Roman', Times, serif;
+}
+
 .pp{
     /* background-color: white; */
     /* opacity: 0.4; */
