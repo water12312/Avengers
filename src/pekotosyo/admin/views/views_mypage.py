@@ -10,6 +10,8 @@ from functools import wraps
 
 my_page = Blueprint('my_page', __name__)
 
+
+
 # book_reserveに飛ばす
 @my_page.route('/book_reserve')
 def book_reserve():
