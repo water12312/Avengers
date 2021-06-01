@@ -10,4 +10,4 @@ insert into users (user_id, password, user_name) values('00000007','pass07','Mak
 insert into users (user_id, password, user_name) values('00000008','pass08','Yanagi');
 insert into users (user_id, password, user_name) values('00000009','pass09','Rakuyama');
 insert into users (user_id, password, user_name) values('00000010','pass10','Watanabe');
-insert into users (user_id, password, user_name) values('00000011','pass11','stadd');
+insert into users (user_id, password, user_name) values('00000011','pass11','staff');
