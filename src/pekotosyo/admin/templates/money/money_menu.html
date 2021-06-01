@@ -11,6 +11,7 @@
                 border: double 4px #21b384;
                 padding: 0.5em 1em 0.5em 2.3em;
                 position: relative;
+                background-color: rgba(255,255,255,0.8);
             }
             ul li{
                 line-height: 1.5;
@@ -47,14 +48,37 @@
                 border-color: #cbe585;
                 color: #FFF;
             }
+
+            .money{
+                position: relative;
+                padding: 1.5rem 1rem;
+                font-size: x-large;
+            }
+
+            .money:after {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 10px;
+                content: '';
+                background-image: -webkit-repeating-linear-gradient(135deg, #000, #000 1px, transparent 2px, transparent 5px);
+                background-image: repeating-linear-gradient(-45deg, #000, #000 1px, transparent 2px, transparent 5px);
+                background-size: 7px 7px;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            
         </style>
         <title>電子マネー</title>
     </head>
     <body>
         <a href="{{url_for('top_page.mypage')}}" class="btn-border">戻る</a>
         <br>
-        <span>残高：</span>
-        {{ summoney }}
+        <div class="money">
+            <span class="">残高：</span>
+            {{ summoney }}円
+        </div>
         <ul>
 
             <li><a class="tip" href="{{url_for('money.money_card')}}">口座登録</a></li>
