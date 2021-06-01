@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="jp">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>本の検索</title>
 </head>
 <body>
     <p>検索結果</p>
@@ -12,9 +12,9 @@
 
     <p>{{book.book_name}}は{{ book.book_genre }}です</p>
 
-    <p><a href="{{url_for('mypage')}}">マイページへ戻る</a></p>
+    <p><a href="{{url_for('top_page.mypage')}}">マイページへ戻る</a></p>
 
-    <p><a href="{{url_for('logout')}}">ログアウト</a></p>
+    <p><a href="{{url_for('top_page.logout')}}">ログアウト</a></p>
 
 
 

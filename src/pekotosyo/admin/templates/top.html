@@ -1,11 +1,10 @@
-top.html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="jp">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>トップページ</title>
 </head>
 <body>
     <!-- <p>top.html</p> -->
@@ -21,49 +20,27 @@ top.html
         {% endif %}
     {% endfor %}
     <h3>
-        <a href="{{url_for('mypage')}}">マイページへ</a>
+        <a href="{{url_for('top_page.mypage')}}">マイページへ</a>
 
         {% if session.get('logged_in'): %}
-            <a href="{{url_for('logout')}}">ログアウト</a>
+            <a href="{{url_for('top_page.logout')}}">ログアウト</a>
         {% else %}
-            <a href="{{url_for('top')}}">ログイン</a>
+            <a href="{{url_for('top_page.top')}}">ログイン</a>
         {% endif %}
-
     </h3>
-    <form action="{{ url_for('mypage.result') }}" method="POST">
 
-    <p>本の検索：<input type="text" name="item" size="30"><input type="submit" value="検索"></p>
+    <form action="{{ url_for('top_page.top') }}" method="POST">
+        <div>
+        ID
+            <input type="text" name="user_id">
+        </div>
+        <div>
+            Password
+            <input type="password" name="password">
 
+        </div>
+        <button type="submit">ログインする</button>
     </form>
-
-    <form action="{{ url_for('top') }}" method="POST">
-
-    <!-- <a href="{{ url_for('logout')}}">ログイン</a> -->
-
-    <div>
-    ID
-        <input type="text" name="user_id">
-    </div>
-    <div>
-        Password
-        <input type="password" name="password">
-
-    </div>
-    <button type="submit">ログインする</button>
-</form>
-
 
 </body>
 </html>
-
-    <!-- <form method="get" action="http://www.google.co.jp/search" target="_blank">
-        
-        <input type="text" name="q" size="31" maxlength="255" value="">
-        
-        <input type="submit" name="btng" value="検索">
-        
-        <input type="hidden" name="hl" value="ja">
-        
-        <input type="hidden" name="sitesearch" value="jbloog.com">
-        
-    </form> -->

@@ -1,4 +1,4 @@
-from flask import render_template, request, url_for, session, redirect,flash,Blueprint
+from flask import render_template, request, url_for, session, redirect,flash, Blueprint
 
 from admin import app
 
@@ -15,18 +15,18 @@ money = Blueprint('money',__name__)
 #電子マネーホーム
 @money.route('/')
 def index():
-    return render_template('money/money_menu.html', id=id)
+    return render_template('money/money_menu.html')
 
 #---------------------------------------------------------------
 
 #口座登録の画面表示
-@money.route('/card/<string:id>')
-def money_card(id):
-    return render_template('money/card.html', id=id)
+@money.route('/card')
+def money_card():
+    return render_template('money/card.html')
 
 
 #クレジットカード情報受信POST useridと入力内容を挿入。
-@money.route('/card/',methods=['POST'])
+@money.route('/card', methods=['POST'])
 def card_info():
     card_number=request.form.get('card_number')
     card_key=request.form.get('card_key')
@@ -49,15 +49,15 @@ def card_info():
         # return render_template('money/money_menu.html')
         return redirect('money/money_menu.html')
 
-#-----------------------------------------------------------------
+# #-----------------------------------------------------------------
 
-#チャージ画面を表示。
+# #チャージ画面を表示。
 @money.route('/charge')
 def money_charge():
     return render_template('money/charge.html')
 
 
-#チャージ金額を受信POST　IDを取得してそれとチャージ金額を登録。
+# #チャージ金額を受信POST　IDを取得してそれとチャージ金額を登録。
 @money.route('/charge',methods=['POST'])
 def charge():
     chargemoney=request.form.get('chargemoney')
@@ -73,9 +73,9 @@ def charge():
         return render_template('money/charge_check.html',history=history)
     else:
         return redirect('money/money_menu.html')
-#--------------------------------------------------------------------
+# #--------------------------------------------------------------------
 
-#チャージ履歴の画面を表示。IDを取得してそれと一致するレコードをリストで渡す
+# #チャージ履歴の画面を表示。IDを取得してそれと一致するレコードをリストで渡す
 @money.route('/history', methods=['GET'])
 def charge_history():   #get ID
     userid = '00000001'
