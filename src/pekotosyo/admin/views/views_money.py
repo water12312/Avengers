@@ -44,9 +44,24 @@ def card_info():
     card_date=request.form.get('card_date')
     card_name=request.form.get('card_name')
 
+    cardinfo = Cardinfo.query.all()
+    if user_log == cardinfo.user_id:
+        if card_number and card_key and card_date and card_name:
+        info = Cardinfo(
+            user_id=sesseion.get('user_log')
+            card_number=request.form.get('card_number'),
+            card_key=request.form.get('card_key'),
+            card_date=request.form.get('card_date'),
+            card_name=request.form.get('card_name'),
+            user_money= user_money + ca
+        )
+        db.session.add(info)
+        db.session.commit()
+        return render_template('money/card_check.html')
+    
     if card_number and card_key and card_date and card_name:
         info = Cardinfo(
-            user_id=user_id,
+            user_id=sesseion.get('user_log')
             card_number=request.form.get('card_number'),
             card_key=request.form.get('card_key'),
             card_date=request.form.get('card_date'),
@@ -96,5 +111,6 @@ def charge_history():   #get ID
 
     # histries = Cardhistory.query.filter(Users.user_id==userid).all()
     return render_template('money/charge_history.html', histories=histories, user_id=user_id,user_name=user_name)
+
 
 

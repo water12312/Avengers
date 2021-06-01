@@ -1,4 +1,4 @@
-# Flaskのインポート
+
 from flask import render_template, request, url_for, session, redirect, flash, Blueprint
 
 from admin import app
@@ -30,6 +30,11 @@ def mypage():
     user_id = session.get("user_log")
     return render_template('mypage.html', user_name=user_name, user_id=user_id)
 
+@top_page.route('/staff')
+@login_check
+def staff():
+    return render_template('staff/staff.html')
+
 
 @top_page.route('/', methods=['GET', 'POST'])
 def top():
@@ -53,7 +58,11 @@ def top():
             session['user_in'] = user.user_name
             session['user_log'] = user.user_id
             flash('ログインしました', 'success')
-            return redirect(url_for('top_page.mypage'))
+            user_id = session.get('user_log')
+            if user_id == '00000011':
+                 return redirect(url_for('top_page.staff'))
+            else:
+                return redirect(url_for('top_page.mypage'))
     return render_template('top.html')
 
 

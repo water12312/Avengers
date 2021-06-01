@@ -2,7 +2,7 @@ from flask import render_template, request, url_for, session, redirect, flash, B
 from admin import app
 from lib.models import Book,Borrowbook
 
-from lib.db import init_db
+from lib.db import db
 
 
 book = Blueprint('book', __name__)
@@ -11,12 +11,11 @@ from functools import wraps
 import statistics
 #今借りているものを表示
 # @app.route('/')
-# @book.route('/borrowbook')
+@book.route('/borrowbook')
 # @login_check
 def borrowbook():
     
-    # user_id = request.form.get('user_id')
-    user_id = '0000001'
+    user_id = session.get("user_log")
     borrowbook = Borrowbook.query.order_by(Borrowbook.book_id.asc()).all()
     books = Book.query.order_by(Book.book_id.asc()).all()
 
@@ -26,8 +25,8 @@ def borrowbook():
 # @login_checkS
 def bookhistory():
     #接続テスト確認必要
-    # user_id = request.form.get('user_id')
-    user_id = '0000001'
+    user_id = session.get("user_log")
+    # user_id = '0000001'
     borrowbook = Borrowbook.query.order_by(Borrowbook.book_id.asc()).all()
     books = Book.query.order_by(Book.book_id.asc()).all()
 
@@ -40,8 +39,7 @@ def bookhistory():
 # @login_check
 def recommend():
     
-    # user_id = request.form.get('user_id')
-    user_id = '0000001'
+    user_id = session.get("user_log")
     borrowbook = Borrowbook.query.order_by(Borrowbook.book_id.asc()).all()
     books = Book.query.order_by(Book.book_id.asc()).all()
     genrelist = []
@@ -52,7 +50,12 @@ def recommend():
                 if book.book_id == book2.book_id :
                     genre = book2.book_genre
                     genrelist.append(genre)
-                    mostgenre = statistics.mode(genrelist)
+                    mostgenre1 = statistics.mode(genrelist)
+                    if mostgenre1 == type(list):
+                        mostgenre = mostgenre1[0]
+                    else:
+                        mostgenre = mostgenre1
+                    
                    
 
     return render_template('/book/recommend.html',borrowbook = borrowbook,user_id=user_id,books=books,mostgenre=mostgenre)
