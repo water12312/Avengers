@@ -10,7 +10,7 @@
         <br>
         いくらチャージしますか？
         <form action="{{url_for('money.charge')}}" method="POST">
-            <input type="tel" name="chargemoney">円
+            <input type="tel" name="chargemoney" required>円
             <input type="submit">
         </form>
     </body>
