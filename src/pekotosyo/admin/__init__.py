@@ -15,10 +15,7 @@ init_db(app)
 
 # from admin.views import views_money
 
-
-
 from admin.views import views_book, views_kids_reserve, views_money, views_staff,views_top,views_mypage
-
 
 
 
@@ -29,6 +26,3 @@ app.register_blueprint(views_staff.staff, url_prefix='/staff')
 
 app.register_blueprint(views_top.top_page, url_prefix='/')
 app.register_blueprint(views_mypage.my_page, url_prefix='/mypage')
-
-
-
