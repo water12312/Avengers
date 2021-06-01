@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/style_mypage.css" rel="stylesheet">
     <title>マイページ</title>
 </head>
 <body>
     <h3>ようこそ</h3>
+
     <ul>
-        <li><a href="{{url_for('my_page.kid_reserve')}}">保育予約</a></li>
-        <li><a href="{{url_for('my_page.money')}}">電子マネー</a></li>
-        <li><a href="{{url_for('my_page.book_reserve')}}">貸出確認</a></li>
-        <li><a href="{{url_for('my_page.book_recommend')}}">あなたにオススメの本</a></li>
+        <ol><a href="{{url_for('my_page.kid_reserve')}}">保育予約</a></ol>
+        <ol><a href="{{url_for('my_page.money')}}">電子マネー</a></ol>
+        <ol><a href="{{url_for('my_page.book_reserve')}}">貸出確認</a></ol>
+        <ol><a href="{{url_for('my_page.book_recommend')}}">あなたにオススメの本</a></l>
     </ul>
 
 
