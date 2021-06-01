@@ -52,6 +52,6 @@ def reserve_check():
 
     # return render_template('kid_reserve/reserve_check.html', reserve_date=reserve_date, user_id=user_id, item=item )
 
-@app.route('/')
+@kid_reserve.route('/mypage')
 def mypage():
     return render_template('mypage.html')

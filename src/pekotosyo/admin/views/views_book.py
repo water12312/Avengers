@@ -2,7 +2,7 @@ from flask import render_template, request, url_for, session, redirect, flash, B
 from admin import app
 from lib.models import Book,Borrowbook
 
-from lib.db import init_db
+from lib.db import db
 
 
 book = Blueprint('book', __name__)
@@ -11,7 +11,7 @@ from functools import wraps
 import statistics
 #今借りているものを表示
 # @app.route('/')
-# @book.route('/borrowbook')
+@book.route('/borrowbook')
 # @login_check
 def borrowbook():
     

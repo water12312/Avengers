@@ -7,9 +7,9 @@
     </head>
     <body>
         <ul>
-            <li><a href="{{url_for('money.money_card', id=id)}}">口座登録</a></li>
-            <li><a href="{{url_for('money.money_charge', id=id)}}">チャージ</a></li>
-            <li><a href="{{url_for('money.charge_history', id=id)}}">入金履歴</a></li>
+            <li><a href="{{url_for('money.money_card', id=user_id)}}">口座登録</a></li>
+            <li><a href="{{url_for('money.money_charge', id=user_id)}}">チャージ</a></li>
+            <li><a href="{{url_for('money.charge_history', id=user_id)}}">入金履歴</a></li>
         </ul>
     </body>
 </html>

@@ -13,14 +13,15 @@ mypage = Blueprint('mypage', __name__)
 # book_reserveに飛ばす
 
 
-@mypage.route('/book_borrow')
-def book_borrow(user_id):
+@mypage.route('/book_reserve')
+def book_reserve(user_id):
     id_send = Users.query.get(user_id)
-    return render_template('book/book_borrow.html', user_id=id_send)
+    return render_template('book_reserve.html', user_id=id_send)
 
 # kid_reserveに飛ばす
 @mypage.route('/kid_reserve')
 def kid_reserve():
+
     return render_template('kid_reserve.html')
 
 # moneyに飛ばす

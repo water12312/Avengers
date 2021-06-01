@@ -13,7 +13,6 @@ app.config.from_object('lib.config')
 
 init_db(app)
 
-# from admin.views import views_money
 
 
 from admin.views import views_book, views_kids_reserve, views_money, views_staff,views_top,views_mypage
