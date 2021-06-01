@@ -1,4 +1,9 @@
 insert into borrowbook (keyid, user_id, book_id,frag,deadline) values (1,'00000001', '0000001','0',TO_DATE('20200823', 'YYYYMMDD'));
+insert into borrowbook (keyid, user_id, book_id,frag,deadline) values (1,'00000001', '0000002','1',TO_DATE('20200805', 'YYYYMMDD'));
+insert into borrowbook (keyid, user_id, book_id,frag,deadline) values (1,'00000001', '0000003','0',TO_DATE('20200812', 'YYYYMMDD'));
+insert into borrowbook (keyid, user_id, book_id,frag,deadline) values (1,'00000001', '0000004','0',TO_DATE('20200819', 'YYYYMMDD'));
+insert into borrowbook (keyid, user_id, book_id,frag,deadline) values (1,'00000001', '0000005','1',TO_DATE('20200804', 'YYYYMMDD'));
+insert into borrowbook (keyid, user_id, book_id,frag,deadline) values (1,'00000001', '0000006','0',TO_DATE('20200830', 'YYYYMMDD'));
 insert into borrowbook (keyid, user_id, book_id,frag,deadline) values (2,'00000006', '0000007','1',TO_DATE('20200805', 'YYYYMMDD'));
 insert into borrowbook (keyid, user_id, book_id,frag,deadline) values (3,'00000008', '0000008','0',TO_DATE('20200823', 'YYYYMMDD'));
 insert into borrowbook (keyid, user_id, book_id,frag,deadline) values (4,'00000010', '0000010','1',TO_DATE('20200805', 'YYYYMMDD'));
