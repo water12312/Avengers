@@ -13,9 +13,11 @@ app.config.from_object('lib.config')
 
 init_db(app)
 
+# from admin.views import views_money
 
 
 from admin.views import views_book, views_kids_reserve, views_money, views_staff,views_top,views_mypage
+
 
 
 app.register_blueprint(views_book.book, url_prefix='/book')
@@ -24,4 +26,3 @@ app.register_blueprint(views_money.money, url_prefix='/money')
 app.register_blueprint(views_staff.staff, url_prefix='/staff')
 app.register_blueprint(views_top.top, url_prefix='/top')
 app.register_blueprint(views_mypage.mypage, url_prefix='/')
-

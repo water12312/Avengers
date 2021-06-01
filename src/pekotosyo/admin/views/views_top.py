@@ -60,3 +60,4 @@ def logout():
     flash('ログアウトしました', 'success')
     return render_template('top.html')
 
+
