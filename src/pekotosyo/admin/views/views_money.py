@@ -96,6 +96,3 @@ def charge_history():   #get ID
 
     # histries = Cardhistory.query.filter(Users.user_id==userid).all()
     return render_template('money/charge_history.html', histories=histories, user_id=user_id,user_name=user_name)
-
-
-
