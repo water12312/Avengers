@@ -19,6 +19,7 @@ def index():
     user_id = session.get('user_log')
     histories = Cardhistory.query.order_by(Cardhistory.user_id.asc()).all()
     list = []
+    summoney = 0
     for history in histories:
         if user_id == history.user_id:
             list.append(history.chargemoney)
