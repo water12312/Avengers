@@ -18,7 +18,7 @@ def login_check(view):
     def inner(*args, **kwargs):
         if not session.get('logged_in'):
             flash('ログインしてください','error')
-            return redirect(url_for('top'))
+            return redirect(url_for('top_page.top'))
         return view(*args,**kwargs)
     return inner
 
