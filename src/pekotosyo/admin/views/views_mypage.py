@@ -8,32 +8,26 @@ from lib.db import db
 
 from functools import wraps
 
-mypage = Blueprint('mypage', __name__)
+my_page = Blueprint('my_page', __name__)
 
 # book_reserveに飛ばす
-
-
-@mypage.route('/book_reserve')
-def book_reserve(user_id):
-    id_send = Users.query.get(user_id)
-    return render_template('book_reserve.html', user_id=id_send)
-
+@my_page.route('/book_reserve')
+def book_reserve():
+    return redirect(url_for('book.borrowbook'))
 # kid_reserveに飛ばす
-@mypage.route('/kid_reserve')
+@my_page.route('/kid_reserve')
 def kid_reserve():
-
-    return render_template('kid_reserve.html')
+    return redirect(url_for('kid_reserve.reserve'))
 
 # moneyに飛ばす
-@mypage.route('/money')
+@my_page.route('/money')
 def money():
-    return render_template('money.html')
+    return render_template('money/money_menu.html')
 
 # book_recommendに飛ばす
-@mypage.route('/book_recommend')
+@my_page.route('/book_recommend')
 def book_recommend():
-    return render_template('book_recommend')
-
+    return redirect(url_for('book.recommend'))
 
 
 # flashで期限が迫っている場合、知らせを表示する
@@ -48,7 +42,7 @@ def book_recommend():
 #     return '<p>「{0}」 {1}</p>'.format(item, genre)
 
 
-@mypage.route('/result', methods={'POST'})
+@my_page.route('/mypage', methods={'POST'})
 def result():
     search_name = request.form.get('item')
     book = Book.query.filter_by(book_name=search_name).first()
@@ -61,5 +55,5 @@ def result():
     else:
         return render_template('book_search.html', book=book)
         
-        
         # print('その商品はありません')
+

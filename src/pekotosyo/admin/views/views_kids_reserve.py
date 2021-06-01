@@ -16,13 +16,13 @@ kid_reserve = Blueprint('kid_reserve', __name__)
 @kid_reserve.route('/')
 def reserve():
     # ログインのメソッドをいれる
-    user_id = session.get('user_id')
-    return render_template('kid_reserve/reserve.html', user_id = user_id )
+    user_id = session.get('user_log')
+    return render_template('kid_reserve/reserve.html' )
 
 @kid_reserve.route('kid_reserve/reserve_check', methods=["POST"])
 def reserve_check():
     # ログインのメソッドがいる
-    user_id = session.get('user_id')
+    user_id = session.get('user_log')
     # return render_template('kid_reserve/reserve_check.html')
 
     user_id = request.form.get('user_id')
@@ -52,6 +52,3 @@ def reserve_check():
 
     # return render_template('kid_reserve/reserve_check.html', reserve_date=reserve_date, user_id=user_id, item=item )
 
-@kid_reserve.route('/mypage')
-def mypage():
-    return render_template('mypage.html')
