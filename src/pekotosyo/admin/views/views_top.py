@@ -30,6 +30,7 @@ def mypage():
     user_id = session.get("user_log")
     return render_template('mypage.html', user_name=user_name, user_id=user_id)
 
+
 @top_page.route('/', methods=['GET', 'POST'])
 def top():
     if request.method== 'POST':
@@ -55,9 +56,6 @@ def top():
             return redirect(url_for('top_page.mypage'))
     return render_template('top.html')
 
-# @top_page.route('/')
-# def top():
-#     return render_template('top.html')
 
 
 @top_page.route('/logout')
@@ -66,9 +64,3 @@ def logout():
     session.pop('user_in', None)
     flash('ログアウトしました', 'success')
     return render_template('top.html')
-
-
-
-
-
-

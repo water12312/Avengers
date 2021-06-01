@@ -56,6 +56,5 @@ def result():
     else:
         return render_template('book_search.html', book=book)
         
-        
         # print('その商品はありません')
 
