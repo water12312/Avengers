@@ -79,7 +79,7 @@ def charge():
 @money.route('/history', methods=['GET'])
 def charge_history():   #get ID
     userid = '00000001'
-    histories = Cardhistory.query.order_by(Cardhistory.userid.asc()).all()
+    histories = Cardhistory.query.order_by(Cardhistory.user_id.asc()).all()
     
     # histries = Cardhistory.query.filter(Users.user_id==userid).all()
     return render_template('money/charge_history.html', histories=histories, userid='00000001')
