@@ -2,7 +2,7 @@ from flask import render_template, request, url_for, session, redirect, flash, B
 
 from admin import app
 
-from lib.models import Users, Book
+from lib.models import Users, Book, Cardhistory
 
 from lib.db import db
 
@@ -10,25 +10,28 @@ from functools import wraps
 
 my_page = Blueprint('my_page', __name__)
 
+
+
 # book_reserveに飛ばす
 @my_page.route('/book_reserve')
 def book_reserve():
-    return render_template('book/book_borrow.html')
+    return redirect(url_for('book.borrowbook'))
 
 # kid_reserveに飛ばす
 @my_page.route('/kid_reserve')
 def kid_reserve():
-    return render_template('kid_reserve/reserve.html')
+    return redirect(url_for('kid_reserve.reserve'))
 
 # moneyに飛ばす
 @my_page.route('/money')
 def money():
-    return render_template('money/money_menu.html')
+
+    return redirect(url_for('money.index'))
 
 # book_recommendに飛ばす
 @my_page.route('/book_recommend')
 def book_recommend():
-    return render_template('book/recommend.html')
+    return redirect(url_for('book.recommend'))
 
 
 # flashで期限が迫っている場合、知らせを表示する
