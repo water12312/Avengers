@@ -15,14 +15,14 @@ def staffadd():
     return render_template('staff/user_add.html')
 @staff.route('/useradd',methods=['POST'])
 def useradd():
-    user_id = request.form.get('user_log')
+    user_id = request.form.get('user_id')
     user_name = request.form.get('user_name')
     password = request.form.get('password')
 
 
     if user_id and user_name and password:
         user = Users(
-            user_id = request.form.get('user_log'),
+            user_id = request.form.get('user_id'),
             user_name = request.form.get('user_name'),
             password = request.form.get('password'),
             )
