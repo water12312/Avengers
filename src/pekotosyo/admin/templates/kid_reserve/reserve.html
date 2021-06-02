@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>予約フォーム</title>
     <link href="/static/style_reserve.css" rel="stylesheet">
+    <style type="text/css">
+        .btn-red{
+            border: 2px solid #ee1212;
+            color: #ee1212;
+            margin-bottom: 10px;
+        }
+        .btn-red:hover {
+            background-color: #ee1212;
+            border-color: #e58585;
+            color: #FFF;
+        }
+    </style>
 </head>
 <body>
 
@@ -40,11 +52,10 @@
                     <option value="借りない">借りない</option>
                 </select>
                 <br>
-                <button type="submit">送信</button>
-
-                
+                <button type="submit" class="btn-border btn-red">送信</button>
+                <br>
             </form>  
-            <a href="{{url_for('kid_reserve.reservehistory')}}">予約履歴</a>          
+            <a href="{{url_for('kid_reserve.reservehistory')}}" class="btn-border">予約履歴</a>          
         </div>
     </div>         
 </body>

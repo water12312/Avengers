@@ -39,3 +39,7 @@ h1{
     border-color: #cbe585;
     color: #FFF;
 }
+
+.reserve-history{
+    background-color: rgba(255,255,255,0.8);
+}
