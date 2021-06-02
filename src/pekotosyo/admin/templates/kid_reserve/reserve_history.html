@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="history.back()">戻る</button>
+    
+    <h1>予約履歴</h1>
+    <table border="1">
+        <tr>
+            <th>日時</th>
+            <th>貸し出すもの</th>
+            
+        </tr>
+        {% for reserve1 in reservehistory %}
+        {% if user_id == reserve1.user_id %}
+        <tr>
+            <td>{{reserve1.reserve_date}}</td>
+            <td>{{reserve1.item}}</td>
+            
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+    
+</body>
+</html>
+</html>

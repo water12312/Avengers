@@ -94,7 +94,7 @@ ALTER SEQUENCE borrowbook_keyid_seq OWNED BY borrowbook.keyid;
 
 CREATE TABLE cardhistory (
     cardhistory_id integer NOT NULL,
-    userid character varying(8),
+    user_id character varying(8),
     history_date date NOT NULL,
     chargemoney integer NOT NULL
 );
@@ -242,7 +242,7 @@ ALTER TABLE ONLY reserve ALTER COLUMN reserve_id SET DEFAULT nextval('reserve_re
 --
 
 COPY alembic_version (version_num) FROM stdin;
-f44b4dd9d9ab
+163850d1b340
 \.
 
 
@@ -279,6 +279,33 @@ COPY books (book_id, book_name, book_genre) FROM stdin;
 --
 
 COPY borrowbook (keyid, user_id, book_id, frag, deadline) FROM stdin;
+1	00000001	0000001	0	2020-08-23
+2	00000006	0000007	1	2020-08-05
+3	00000008	0000008	0	2020-08-23
+4	00000010	0000010	1	2020-08-05
+5	00000007	0000009	0	2020-08-24
+6	00000008	0000011	1	2020-08-06
+7	00000010	0000012	0	2020-08-24
+8	00000010	0000018	1	2020-08-06
+9	00000004	0000020	0	2020-08-25
+10	00000010	0000006	1	2020-08-07
+11	00000008	0000008	0	2020-08-25
+12	00000002	0000013	1	2020-08-07
+13	00000010	0000011	0	2020-08-26
+14	00000002	0000002	1	2020-08-08
+15	00000003	0000009	0	2020-08-26
+16	00000006	0000016	1	2020-08-08
+17	00000007	0000008	0	2020-08-27
+18	00000005	0000014	1	2020-08-09
+19	00000004	0000011	0	2020-08-27
+20	00000008	0000004	1	2020-08-09
+21	00000009	0000007	0	2020-08-28
+22	00000003	0000001	1	2020-08-10
+23	00000001	0000002	1	2020-08-05
+24	00000001	0000003	0	2020-08-12
+25	00000001	0000004	0	2020-08-19
+26	00000001	0000005	1	2020-08-04
+27	00000001	0000006	0	2020-08-30
 \.
 
 
@@ -293,7 +320,20 @@ SELECT pg_catalog.setval('borrowbook_keyid_seq', 1, false);
 -- Data for Name: cardhistory; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY cardhistory (cardhistory_id, userid, history_date, chargemoney) FROM stdin;
+COPY cardhistory (cardhistory_id, user_id, history_date, chargemoney) FROM stdin;
+1	00000001	2021-06-01	1000
+2	00000001	2021-06-01	1000
+3	00000001	2021-06-01	3000
+4	00000001	2021-06-01	123456789
+5	00000001	2021-06-01	4567645
+6	00000001	2021-06-01	4567
+7	00000001	2021-06-01	234531
+8	00000001	2021-06-01	123432
+9	00000001	2021-06-01	12234213
+10	00000001	2021-06-01	1234212
+11	00000002	2021-06-02	1234567
+12	00000001	2021-06-02	234567
+13	00000001	2021-06-02	4292921
 \.
 
 
@@ -301,7 +341,7 @@ COPY cardhistory (cardhistory_id, userid, history_date, chargemoney) FROM stdin;
 -- Name: cardhistory_cardhistory_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('cardhistory_cardhistory_id_seq', 1, false);
+SELECT pg_catalog.setval('cardhistory_cardhistory_id_seq', 13, true);
 
 
 --
@@ -309,6 +349,8 @@ SELECT pg_catalog.setval('cardhistory_cardhistory_id_seq', 1, false);
 --
 
 COPY cardinfo (cardinfo_id, user_id, card_number, card_key, card_date, card_name, user_money) FROM stdin;
+1	00000001	1234567812345678	211	1122	あ	0
+2	00000001	1234567812345678	211	1122	たなか	0
 \.
 
 
@@ -316,7 +358,7 @@ COPY cardinfo (cardinfo_id, user_id, card_number, card_key, card_date, card_name
 -- Name: cardinfo_cardinfo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('cardinfo_cardinfo_id_seq', 1, false);
+SELECT pg_catalog.setval('cardinfo_cardinfo_id_seq', 2, true);
 
 
 --
@@ -324,6 +366,14 @@ SELECT pg_catalog.setval('cardinfo_cardinfo_id_seq', 1, false);
 --
 
 COPY reserve (reserve_id, user_id, reserve_date, item) FROM stdin;
+3	00000001	2020-04-01	アニメ
+4	00000001	2020-04-01	アニメ
+5	00000001	2020-04-01	アニメ
+6	00000001	2020-04-01	借りない
+7	00000001	2020-04-01	
+9	00000001	2020-04-01	
+10	00000001	2020-04-01	おもちゃ
+11	00000001	2020-04-01	
 \.
 
 
@@ -331,7 +381,7 @@ COPY reserve (reserve_id, user_id, reserve_date, item) FROM stdin;
 -- Name: reserve_reserve_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('reserve_reserve_id_seq', 1, false);
+SELECT pg_catalog.setval('reserve_reserve_id_seq', 11, true);
 
 
 --
@@ -349,6 +399,12 @@ COPY users (user_id, password, user_name) FROM stdin;
 00000008	pass08	Yanagi
 00000009	pass09	Rakuyama
 00000010	pass10	Watanabe
+00000011	pass11	staff
+00000012	pass12	tanaka
+00000013	pass13	hamada
+00000014	pass14	kada
+00000015	pass15	tanaka
+00000016	pass16	yama
 \.
 
 
@@ -425,11 +481,11 @@ ALTER TABLE ONLY borrowbook
 
 
 --
--- Name: cardhistory_userid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: cardhistory_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY cardhistory
-    ADD CONSTRAINT cardhistory_userid_fkey FOREIGN KEY (userid) REFERENCES users(user_id);
+    ADD CONSTRAINT cardhistory_user_id_fkey FOREIGN KEY (user_id) REFERENCES users(user_id);
 
 
 --

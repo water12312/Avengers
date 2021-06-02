@@ -52,3 +52,13 @@ def reserve_check():
 
     # return render_template('kid_reserve/reserve_check.html', reserve_date=reserve_date, user_id=user_id, item=item )
 
+@kid_reserve.route('/reservehistory')
+# @login_checkS
+def reservehistory():
+    #接続テスト確認必要
+    user_id = session.get("user_log")
+    # user_id = '0000001'
+    reservehistory = Reserve.query.order_by(Reserve.user_id.asc()).all()
+    
+
+    return render_template('kid_reserve/reserve_history.html',reservehistory=reservehistory,user_id=user_id)

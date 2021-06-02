@@ -7,7 +7,7 @@
     <link href="/static/style_reserve.css" rel="stylesheet">
 </head>
 <body>
-    
+    <a href="{}"></a>
     <div class="pp" align="center">
         <h1>こどもお預かりサービスのご予約フォーム</h1>
         <img src="https://pictogram2.com/p/p0354/2.png" alt="家族画像" width="300" height="300">
@@ -34,7 +34,10 @@
                 <input type="text" name="item" size="30" placeholder="アニメ" required>
                 <br>
                 <button type="submit">送信</button>
-            </form>            
+
+                
+            </form>  
+            <a href="{{url_for('kid_reserve.reservehistory')}}">予約履歴</a>          
         </div>
     </div>         
 </body>
