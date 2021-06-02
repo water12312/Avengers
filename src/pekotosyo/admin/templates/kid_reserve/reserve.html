@@ -18,20 +18,20 @@
             <form action="{{url_for('kid_reserve.reserve_check')}}", method="POST">
                 <!-- 日時 -->
                 <label> ・ご利用になられる日時をお選びください</label>
-                <input type="text" name="reserve_date" size="30" placeholder="2020/04/01">
+                <input type="text" name="reserve_date" size="30" placeholder="2020/04/01" required>
                 <br>
                 <label>・保護者のIDを入力してください</label>
-                <input type="text" name="user_id" size="30" placeholder="00000001">
+                <input type="text" name="user_id" size="30" placeholder="00000001" required>
                 <br>
                 <label>・保護者の名前を入力してください</label>
-                <input type="text" name="user_name" size="30" placeholder="田中太郎">
+                <input type="text" name="user_name" size="30" placeholder="田中太郎" required>
                 <br>
                 <!-- おもちゃの貸し出しセレクト -->
                 <p>さらに当館では、図書以外にもおもちゃ、アニメを貸し出しております。<br>
                 貸し出し希望の場合は借りるアイテム名をいれていください。</p>
                 <br>
                 <label>貸し出しおもちゃの選択【おもちゃ・アニメ・借りない】</label>
-                <input type="text" name="item" size="30" placeholder="アニメ">
+                <input type="text" name="item" size="30" placeholder="アニメ" required>
                 <br>
                 <button type="submit">送信</button>
             </form>            

@@ -51,7 +51,7 @@ def top():
         if not user:
             flash('ユーザーIDが異なります', 'error')
         # elif request.form.get('password') != app.config['PASSWORD']:
-        if not passcheck:
+        elif not passcheck:
             flash('パスワードが異なります', 'error')
         else:
             session['logged_in'] = True
