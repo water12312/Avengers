@@ -7,3 +7,24 @@ body{
     background-color:black;
 
 }
+
+.btn-border {
+    display: inline-block;
+    max-width: 180px;
+    text-align: left;
+    border: 2px solid #21b384;
+    font-size: 16px;
+    color: #21b384;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: .4s;
+    background-color: #FFF;
+}
+
+.btn-border:hover {
+    background-color: #21b384;
+    border-color: #cbe585;
+    color: #FFF;
+}

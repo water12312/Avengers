@@ -7,7 +7,7 @@
     <link href="/static/style_reserve.css" rel="stylesheet">
 </head>
 <body>
-    
+    <a href="{{url_for('top_page.mypage')}}" class="btn-border">マイページへ</a>
     <div class="pp" align="center">
         <h1>こどもお預かりサービスのご予約フォーム</h1>
         <img src="https://pictogram2.com/p/p0354/2.png" alt="家族画像" width="300" height="300">
@@ -31,7 +31,11 @@
                 貸し出し希望の場合は借りるアイテム名をいれていください。</p>
                 <br>
                 <label>貸し出しおもちゃの選択【おもちゃ・アニメ・借りない】</label>
-                <input type="text" name="item" size="30" placeholder="アニメ" required>
+                <select name="item" required>
+                    <option value="おもちゃ">おもちゃ</option>
+                    <option value="アニメ">アニメ</option>
+                    <option value="借りない">借りない</option>
+                </select>
                 <br>
                 <button type="submit">送信</button>
             </form>            
