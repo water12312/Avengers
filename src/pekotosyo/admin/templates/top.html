@@ -11,11 +11,11 @@
     <!-- <p>top.html</p> -->
     {% for category, message in get_flashed_messages(with_categories = true) %}
         {% if category == 'success' %}
-            <div style="background-color:rgb(66, 100, 211)">
+            <div style="background-color:white">
                 {{message}}
             </div>
         {% elif category == 'error' %}
-            <div style="background-color:rgb(66, 100, 211)">
+            <div style="background-color:white">
                 {{message}}
             </div>
         {% endif %}
@@ -52,8 +52,8 @@
         </div>
      -->
      <h1>Pekotosyo</h1>
-     <input type="text" name="user_id"/>
-     <input type="password" name="password"/>
+     <input type="text" name="user_id" placeholder="ID"/>
+     <input type="password" name="password" placeholder="password"/>
      <button type="submit">Login</button>
 
     </form>
