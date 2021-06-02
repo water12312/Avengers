@@ -9,6 +9,7 @@ book = Blueprint('book', __name__)
 
 from functools import wraps
 import statistics
+import collections
 #今借りているものを表示
 # @app.route('/')
 @book.route('/borrowbook')
@@ -53,11 +54,12 @@ def recommend():
                 if book.book_id == book2.book_id :
                     genre = book2.book_genre
                     genrelist.append(genre)
-                    mostgenre1 = statistics.mode(genrelist)
-                    if mostgenre1 == type(list):
-                        mostgenre = mostgenre1[0]
-                    else:
-                        mostgenre = mostgenre1
+                    # mostgenre1 = statistics.mode(genrelist)
+                    mostgenre = collections.Counter(genrelist).most_common()[0][0]
+                    # if mostgenre1 == type(list):
+                    #     mostgenre = mostgenre1[0]
+                    # else:
+                    #     mostgenre = mostgenre1
                     
                    
 

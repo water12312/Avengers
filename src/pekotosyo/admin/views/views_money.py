@@ -23,9 +23,9 @@ def index():
     for history in histories:
         if user_id == history.user_id:
             list.append(history.chargemoney)
-            summoney = sum(list)
-        else:
-            summoney = 0
+            
+    summoney = sum(list)
+
     return render_template('money/money_menu.html', user_name=user_name,summoney=summoney)
 
 #---------------------------------------------------------------
