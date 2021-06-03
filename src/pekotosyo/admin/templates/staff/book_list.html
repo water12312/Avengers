@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            font-size:x-large;
+        }
+        table th, table td {
+            border-width: thick;
+        }
+    </style>
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="../statics/book_list.css"> -->
+</head>
+<body>
+    
+    <button onclick="history.back()">戻る</button>
+    <!--books = Books.query.order_by(Books.book_name.desc().all()) -->
+    <h1>本の一覧</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>タイトル</th>
+            <th>ジャンル</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{book.book_id}}</td>
+            <td>{{book.book_name}}</td>
+            <td>{{book.book_genre}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+</body>
+</html>

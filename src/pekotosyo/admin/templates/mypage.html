@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/style_mypage.css" rel="stylesheet">
+    <title>マイページ</title>
+    <style type="text/css">
+        .btn-border {
+                display: inline-block;
+                max-width: 180px;
+                text-align: left;
+                border: 2px solid #21b384;
+                font-size: 16px;
+                color: #21b384;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 8px 16px;
+                border-radius: 4px;
+                transition: .4s;
+                background-color: #FFF;
+            }
+
+            .btn-border:hover {
+                background-color: #21b384;
+                border-color: #cbe585;
+                color: #FFF;
+            }
+    </style>
+</head>
+<body>
+    {% for category,message in get_flashed_messages(with_categories=true) %}
+        {% if category == 'success' %}
+            <div style="background-color: #FFF;">
+                {{ message }}
+            </div>
+        {% elif category == 'error' %}
+            <div style="background-color: red;">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+    <a class="btn-border" href="{{url_for('top_page.logout')}}">ログアウト</a>
+    <h3>ようこそ</h3>
+
+    <ul>
+        <ol><a href="{{url_for('my_page.kid_reserve')}}">保育予約</a></ol>
+        <ol><a href="{{url_for('my_page.money')}}">電子マネー</a></ol>
+        <ol><a href="{{url_for('my_page.book_reserve')}}">貸出確認</a></ol>
+        <ol><a href="{{url_for('my_page.book_recommend')}}">あなたにオススメの本</a></l>
+    </ul>
+
+
+    
+</body>
+</html>

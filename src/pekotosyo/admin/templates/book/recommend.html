@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../statics/recommend.css">
+    <link href="/static/style_money.css" rel="stylesheet">
+    <title>Document</title>
+    <style type="text/css">
+        .btn-border {
+                display: inline-block;
+                max-width: 180px;
+                text-align: left;
+                border: 2px solid #21b384;
+                font-size: 16px;
+                color: #21b384;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 8px 16px;
+                border-radius: 4px;
+                transition: .4s;
+                background-color: #FFF;
+            }
+
+            .btn-border:hover {
+                background-color: #21b384;
+                border-color: #cbe585;
+                color: #FFF;
+            }
+
+            .book{
+                background-color: rgba(255,255,255,0.8);
+            }
+    </style>
+</head>
+<body>
+    <button class="btn-border" onclick="history.back()">戻る</button>
+    <!--ジャンルいる？-->
+    <!--books = Books.query.order_by(Books.book_name.desc().all()) -->
+    <h1>あなたへのおすすめ本</h1>
+    <h2 class="book_genre">おすすめジャンル:{{mostgenre}}</h2>
+    <table class="book" border="3">
+        <tr class="book_header">
+            <th class="book_cell">タイトル</th>
+
+        </tr>
+        
+        {% for book3 in books %}
+        {% if mostgenre == book3.book_genre %}
+
+        <tr>
+            <td class="book_cell">{{book3.book_name}}</td>
+        </tr>
+        {% endif %}
+
+
+        {% endfor %}
+
+
+    </table> 
+</body>
+</html>

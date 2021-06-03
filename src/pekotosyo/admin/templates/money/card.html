@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link href="/static/style_money.css" rel="stylesheet">
+        <style type="text/css">
+            .btn-border {
+                display: inline-block;
+                max-width: 180px;
+                text-align: left;
+                border: 2px solid #21b384;
+                font-size: 16px;
+                color: #21b384;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 8px 16px;
+                border-radius: 4px;
+                transition: .4s;
+                background-color: #FFF;
+            }
+
+            .btn-border:hover {
+                background-color: #21b384;
+                border-color: #cbe585;
+                color: #FFF;
+            }    
+        </style>
+        <title>電子マネー</title>
+    </head>
+    <body>
+        <a href="{{url_for('top_page.mypage')}}" class="btn-border">マイページへ</a>
+        <form action="{{url_for('money.card_info', id=id)}}" method="POST" required>
+            <p>お名前</p>
+            <input type="text" name="card_name" placeholder="田中太郎" required>
+            <p>カード番号</p>
+            <input type="text" name="card_number" placeholder="xxxxxxxxxxxxxxxx" minlength="16" maxlength="16" required>
+            <p>セキュリティキー</p>
+            <input type="text" name="card_key" placeholder="xxx" required>
+            <p>有効期限</p>
+            <input type="text" name="card_date" placeholder="yymm" required>
+            <input type="submit">
+        </form>
+    </body>

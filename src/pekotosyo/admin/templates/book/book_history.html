@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../statics/book_history.css"> -->
+    <link href="/static/style_money.css" rel="stylesheet">
+    <title>貸し出し履歴</title>
+    <style type="text/css">
+        .btn-border {
+                display: inline-block;
+                max-width: 180px;
+                text-align: left;
+                border: 2px solid #21b384;
+                font-size: 16px;
+                color: #21b384;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 8px 16px;
+                border-radius: 4px;
+                transition: .4s;
+                background-color: #FFF;
+            }
+
+            .btn-border:hover {
+                background-color: #21b384;
+                border-color: #cbe585;
+                color: #FFF;
+            }
+
+            .book{
+                background-color: rgba(255,255,255,0.8);
+            }
+    </style>
+</head>
+<body>
+        <button class="btn-border" onclick="history.back()">戻る</button>
+        
+        <h1>貸し出し履歴</h1>
+        <table class="book" border='1' >
+            <tr class="book_header">
+                <th class="book_cell">タイトル</th>
+                <th class="book_cell">ジャンル</th>
+            </tr> 
+                {% for book2 in books %}
+                {% for book in borrowbook %}
+  
+                {% if user_id == book.user_id %}
+                {% if book.book_id == book2.book_id %}
+                <tr>
+                <td class="book_cell">{{book2.book_name}}</td>
+                <td class="book_cell">{{book2.book_genre}}</td>
+                </tr>
+                {% endif %}
+                {% endif %}
+               
+                {% endfor %}
+                {% endfor %}
+        </table>
+</body>
+</html>

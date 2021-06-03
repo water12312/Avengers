@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>予約フォーム</title>
+    <link href="/static/style_reserve.css" rel="stylesheet">
+    <style type="text/css">
+        .btn-red{
+            border: 2px solid #ee1212;
+            color: #ee1212;
+            margin-bottom: 10px;
+        }
+        .btn-red:hover {
+            background-color: #ee1212;
+            border-color: #e58585;
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+
+
+    <a href="{{url_for('top_page.mypage')}}" class="btn-border">マイページへ</a>
+
+    <div class="pp" align="center">
+        <h1>こどもお預かりサービスのご予約フォーム</h1>
+        <img src="https://pictogram2.com/p/p0354/2.png" alt="家族画像" width="300" height="300">
+        <p>当館では専任保育士による、こどもお預かりサービスをおこなっております。<br>
+        下記のフォームを入力し申請ボタンを押していただければ、いつでもご利用いただけます。</p>
+        <div>
+            <!-- 入力画面 -->
+            <form action="{{url_for('kid_reserve.reserve_check')}}", method="POST">
+                <!-- 日時 -->
+                <label> ・ご利用になられる日時をお選びください</label>
+                <input type="text" name="reserve_date" size="30" placeholder="2020/04/01" required>
+                <br>
+                <label>・保護者のIDを入力してください</label>
+                <input type="text" name="user_id" size="30" placeholder="00000001" required>
+                <br>
+                <label>・保護者の名前を入力してください</label>
+                <input type="text" name="user_name" size="30" placeholder="田中太郎" required>
+                <br>
+                <!-- おもちゃの貸し出しセレクト -->
+                <p>さらに当館では、図書以外にもおもちゃ、アニメを貸し出しております。<br>
+                貸し出し希望の場合は借りるアイテム名をいれていください。</p>
+                <br>
+                <label>貸し出しおもちゃの選択【おもちゃ・アニメ・借りない】</label>
+                <select name="item" required>
+                    <option value="おもちゃ">おもちゃ</option>
+                    <option value="アニメ">アニメ</option>
+                    <option value="借りない">借りない</option>
+                </select>
+                <br>
+                <button type="submit" class="btn-border btn-red">送信</button>
+                <br>
+            </form>  
+            <a href="{{url_for('kid_reserve.reservehistory')}}" class="btn-border">予約履歴</a>          
+        </div>
+    </div>         
+</body>
+</html>

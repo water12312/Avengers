@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/style_top.css" rel="stylesheet">
+    <title>トップページ</title>
+</head>
+<body>
+    <!-- <p>top.html</p> -->
+    {% for category, message in get_flashed_messages(with_categories = true) %}
+        {% if category == 'success' %}
+            <div style="background-color:white">
+                {{message}}
+            </div>
+        {% elif category == 'error' %}
+            <div style="background-color:white">
+                {{message}}
+            </div>
+        {% endif %}
+    {% endfor %}
+    <h3>
+        <a href="{{url_for('top_page.mypage')}}">マイページへ</a>
+
+        {% if session.get('logged_in'): %}
+            <a href="{{url_for('top_page.logout')}}">ログアウト</a>
+        {% else %}
+            <a href="{{url_for('top_page.top')}}">ログイン</a>
+        {% endif %}
+    </h3>
+
+    <!-- <h2 class="search">検索窓</h2> -->
+    <!-- <div class="back">
+
+        <p class="word">Pekotosyo</p>
+    
+    </div> -->
+
+    <form action="{{ url_for('top_page.top') }}" method="POST">
+        <!-- <div class="id">
+        ID
+            <input type="text" name="user_id">
+        </div>
+        <div class="pass">
+        Password
+            <input type="password" name="password">
+
+        </div>
+        <div class="login">
+        <button type="submit">ログインする</button>
+        </div>
+     -->
+     <h1>Pekotosyo</h1>
+     <input type="text" name="user_id" placeholder="ID"/>
+     <input type="password" name="password" placeholder="password"/>
+     <button type="submit">Login</button>
+
+    </form>
+    <!-- <form>
+        <h1>Pekotosyo</h1>
+        <input type="text" placeholder="Username"/>
+        <input type="password" placeholder="Password"/>
+        <button>Login</button>
+    </form> -->
+
+</body>
+</html>
